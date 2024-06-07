@@ -27,11 +27,8 @@
 
 #if there is a change in config only, restart nginx
 - name: copy backend conf
-  ansible.builtin.copy:
-    src: expense.conf
+  ansible.builtin.template:
+    src: expense.conf.j2
     dest: /etc/nginx/default.d/expense.conf
-
-- name: restart nginx
-  ansible.builtin.service:
-    name: nginx
-    state: restarted
+  notify:
+    - restart nginx
