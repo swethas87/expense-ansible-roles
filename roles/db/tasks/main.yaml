@@ -13,13 +13,13 @@
     name:
       - PyMySQL
       - cryptography
-    executable: pip3.9 #pip3.11 if pythong version is 3.11
+    executable: pip3.9 #pip3.11 if python version is 3.11
 
   #check if mysql password is already setup or not
 - name: check DB connection
   community.mysql.mysql_info:
     login_user: root
-    login_password: "{{mysqlroot_password}}"
+    login_password: "{{ mysqlroot_password }}"
     login_host: "{{ login_host }}"
     filter: version
   ignore_errors: yes
