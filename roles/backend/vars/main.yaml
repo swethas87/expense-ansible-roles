@@ -2,3 +2,5 @@ login_user: root
 login_host: db.niksantechnologies.com
 login_password: ExpenseApp@1
 DB_HOST: db.niksantechnologies.com
+app_location: /app
+component: backend

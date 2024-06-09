@@ -1,0 +1,15 @@
+- name: configure db server
+  hosts: db
+  become: yes
+  roles:
+    - db
+- name: configure backend server
+  hosts: app
+  become: yes
+  roles:
+    - backend
+- name: configure frontend server
+  hosts: web
+  become: yes
+  roles:
+    - frontend

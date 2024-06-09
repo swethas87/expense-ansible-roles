@@ -16,21 +16,26 @@
   ansible.builtin.user:
     name: expense
 
-- name: create a directory
-  ansible.builtin.file:
-    path: /app
-    state: directory
+- name: run app prerequisites
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: app-prepreq
 
-- name: downloadbackend code
-  ansible.builtin.get_url:
-    url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
-    dest: /tmp/backend.zip
+# - name: create a directory
+#   ansible.builtin.file:
+#     path: /app
+#     state: directory
 
-- name: unzip backend code
-  ansible.builtin.unarchive:
-    src: /tmp/backend.zip
-    dest: /app
-    remote_src: yes
+# - name: downloadbackend code
+#   ansible.builtin.get_url:
+#     url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+#     dest: /tmp/backend.zip
+
+# - name: unzip backend code
+#   ansible.builtin.unarchive:
+#     src: /tmp/backend.zip
+#     dest: /app
+#     remote_src: yes
 
 - name: install npm dependencies
   ansible.builtin.command: npm install
@@ -62,7 +67,7 @@
   ansible.builtin.systemd_service:
     daemon_reload: true
 
-- name: start andenable backend service
+- name: start and enable backend service
   ansible.builtin.service:
     name: backend
     state: started
