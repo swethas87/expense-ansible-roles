@@ -16,6 +16,5 @@
         - backend
         - frontend
       register: ec2_instances_info
-
-- name: create r53 records
-  amazon.aws.route53:
+# - name: create r53 records
+#   amazon.aws.route53:
