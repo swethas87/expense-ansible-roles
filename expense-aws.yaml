@@ -3,9 +3,9 @@
   vars:
     zone: db.niksantechnologies.com
     loop:
-    - db
-    - backend
-    - frontend
+      - db
+      - backend
+      - frontend
   tasks:
     - name: create ec2 instances
       amazon.aws.ec2_instance:
@@ -17,7 +17,7 @@
           Name: "{{ item }}"
       loop: "{{ instances }}"
       register: ec2_instances_info
-      
+
 - name: print output
   ansible.builtin.debug:
-    msg: "Output: "{{ e2_instances_info }}""
+    msg: "Output: {{ e2_instances_info }}"
