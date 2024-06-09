@@ -8,6 +8,8 @@
 
 - name: configure backend server
   hosts: app
+  vars_files:
+    - credentials.yaml
   become: yes
   roles:
     - backend
