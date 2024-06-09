@@ -1,13 +1,17 @@
 - name: configure db server
   hosts: db
+  vars_file:
+    - credentials.yaml
   become: yes
   roles:
     - db
+
 - name: configure backend server
   hosts: app
   become: yes
   roles:
     - backend
+
 - name: configure frontend server
   hosts: web
   become: yes
