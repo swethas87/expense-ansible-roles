@@ -18,3 +18,6 @@
       register: ec2_instances_info
 # - name: create r53 records
 #   amazon.aws.route53:
+- name: print output
+  ansible.builtin.debug:
+    msL"Output: "{{c2_instances_info}}"
