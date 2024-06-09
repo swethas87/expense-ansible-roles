@@ -2,7 +2,7 @@
   hosts: localhost
   vars:
     zone: db.niksantechnologies.com
-    loop:
+    instances:
       - db
       - backend
       - frontend
