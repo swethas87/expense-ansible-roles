@@ -6,7 +6,8 @@ keyed_groups:
     prefix: ""
     parent_group: ""
 
-filters: tag:Name:"Backend.*"
+filters:
+  tag:Name: "Backend.*"
 
-componse:
+compose:
   ansile_host: private_ip_address
