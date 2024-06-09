@@ -18,6 +18,6 @@
       loop: "{{ instances }}"
       register: ec2_instances_info
 
-- name: print output
-  ansible.builtin.debug:
-    msg: "Output: {{ e2_instances_info }}"
+    - name: print output
+      ansible.builtin.debug:
+        msg: "Output: {{ e2_instances_info }}"
