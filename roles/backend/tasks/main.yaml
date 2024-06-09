@@ -43,8 +43,8 @@
     chdir: /app
 
 - name: copy backendservice to remote server
-  ansible.builtin.template:
-    src: backend.service.j2
+  ansible.builtin.copy:
+    src: backend.service
     dest: /etc/systemd/system/backend.service
 
 - name: install python mysql dependencies
