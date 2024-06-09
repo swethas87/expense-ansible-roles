@@ -2,6 +2,10 @@
   hosts: localhost
   vars:
     zone: db.niksantechnologies.com
+    loop:
+    - db
+    - backend
+    - frontend
   tasks:
     - name: create ec2 instances
       amazon.aws.ec2_instance:
@@ -11,11 +15,9 @@
         image_id: ami-090252cbe067a9e58
         tags:
           Name: "{{ item }}"
-      loop:
-        - db
-        - backend
-        - frontend
+      loop: "{{ instances }}"
       register: ec2_instances_info
+      
 - name: print output
   ansible.builtin.debug:
     msg: "Output: "{{ e2_instances_info }}""
