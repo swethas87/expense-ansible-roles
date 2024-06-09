@@ -13,9 +13,8 @@
   become: yes
   roles:
     - backend
-
-- name: configure frontend server
-  hosts: web
-  become: yes
-  roles:
-    - frontend
+# - name: configure frontend server
+#   hosts: web
+#   become: yes
+#   roles:
+#     - frontend
